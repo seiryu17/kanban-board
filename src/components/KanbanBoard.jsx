@@ -44,13 +44,10 @@ const KanbanBoard = () => {
           order: destination.index,
         };
       }
-      if (task.status === source.droppableId && task.order > source.index) {
+      if (task.order > source.index) {
         return { ...task, order: task.order - 1 };
       }
-      if (
-        task.status === destination.droppableId &&
-        task.order >= destination.index
-      ) {
+      if (task.order >= destination.index) {
         return { ...task, order: task.order + 1 };
       }
       return task;
